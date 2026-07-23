@@ -1,0 +1,151 @@
+//aula dia 18/06, devido aos diversos programas, usarei
+//switch case para alternar entre os programas
+#include <conio.h>
+#include <stdlib.h>
+#include <stdio.h>
+main(){
+	int prog;
+	printf("qual programa voce quer rodar: 1,2,3 etc: ");
+	scanf("%d", &prog);
+	switch(prog){
+		case 1:{
+			
+		
+			
+			int cont = 1;
+			float valorrev, valordesc, maiordesc, valorpago,vtotal;
+			//apesar de ser indicado ser usado o FOR, usarei o WHILE
+			//essa foi uma questao de prova
+			while(cont<=15){
+			printf("insira o valor original da revisao");
+			scanf ("%f", & valorrev);
+			
+			if(valorrev <800){valordesc = valorrev *100/15;}
+			else {valordesc=valorrev*100/25;}
+			
+			if (valordesc>maiordesc){maiordesc=valordesc;}
+			valorpago=valorrev-valordesc;
+			
+			printf("\n voce pagara %.2f reais com o desconto.", valorpago);
+			vtotal= vtotal+valorpago;
+			cont++;
+			}
+			printf("\novalortotal arrecadado foi de %.2f", vtotal);
+			printf("\no maior desconto foi de %.2f reais", maiordesc);
+			
+			break;}
+			case 2: {
+			
+			int idade=0, conta=0,multa,contmulta=0,idademax,nummulta,idadetotal;
+			float idademed,mediamulta,porcmulta;
+			
+			while (idade>=0){
+			printf("insira sua idade: ");
+			scanf("%d", & idade);
+			printf("\ninsira a quantidade de multas que voce tomou esse ano: ");
+			scanf("%d", & multa);
+			
+			if (multa>3){contmulta++;}
+			if (idade>idademax){idademax=idade;}
+			nummulta=nummulta+multa;
+			idadetotal=idadetotal+idade;
+			conta++;
+			
+			idademed =idadetotal/conta;
+			printf("\na media das idades foi de %.2f", idademed);
+			
+			mediamulta = nummulta/conta;
+			printf("\n a media de multas por pessoa foi de %.2f", mediamulta);
+			printf("\n a maior idade foi de %d", idademax);
+			
+			porcmulta = (conta/contmulta)*100;
+			printf("\na porcentagem de pessoas com mais de 3 multas e de %.2f", porcmulta);
+			}
+			
+			
+			break;}
+			case 3:{
+			
+			//aula de vetores 
+			int vetor[7],i;
+			char nome[0][30];
+			
+			for(i=0;i<7;i++){
+				printf("declare um valor pro vetor: ");
+				scanf("%d", &vetor[i]);
+			}
+				for(i=0;i<7;i++){printf("%d", vetor[i]);
+				}
+			//se int vetor[7] e o for com 7 tambem, da erro, pesquisar em casa sobre.
+			
+			printf("\ndigite um nome ai: ");
+			scanf("%[^\n]s", &nome[0]);
+			// %[^\n]s serve para anular o espaço na leitura do codigo
+			break;}
+		case 4:{//elabore um programa que leia 5 valores do tipo int em um vetor A, imprima todos os valores
+			//em ordem normal e reversa
+			int i, var[4];
+			
+			for(i=0;i<4;i++){printf("digite um numero: ");
+			scanf("%d", & var[i]);}
+			
+			for(i=0;i<4;i++){printf("\n%d", var[i] );
+			}
+			for(i=3;i>=0;i--){printf("\n%d", var[i]);
+			}
+			break;
+		}
+		case 5: {int i,maior, menor, soma=0,cont,num, A[4];
+		
+		
+		float media;
+		
+		for(i=0;i<5;i++){printf("\ndigite numeros: ");
+		scanf("%d",&A[i]);
+		
+		
+		if (A[i]>maior){maior=A[i];
+		}
+		if (A[i]<menor){menor=A[i];
+		}
+		soma=soma+A[i];
+		cont++;}
+		media=soma/cont;
+		printf("a media foi %f, a soma foi %d, o maior foi %d, o menor foi %d", media, soma,maior,menor);
+		
+		
+			break;}
+			//elabore um programa que receba o nome e duas notas de seis alunos e mostre o 
+			//relatorio a seguir: media, percent de reprovados, exame e aprovados (<5 reprova, 7< aprova)
+			case 6:{
+				char nome[6][20];
+				int nota1[6],nota2[6],i, aprovado=0, reprovado=0, exame=0;
+				float media[6], somaMedia;
+				
+				for(i=1;i<6;i++){
+				
+				printf ("digite o nome do aluno %d: ", i);
+				scanf("%s", &nome[i]);
+				
+				printf("insira a primeira nota nota : ");
+				scanf("%d", &nota1[i]);
+				
+				printf("insira a segunda nota nota : ");
+				scanf("%d",& nota2[i]);
+				
+				media[i]=(nota1[i]+nota2[i])/2;
+				somaMedia=somaMedia+media[i];
+				
+				if(media[i]<5){reprovado++;}
+				else if (media[i]>=5&&media[i]<7){exame++;}
+				else {aprovado++;}
+				}
+				
+				break;}
+			
+			
+		
+				
+			
+
+getch();}}
